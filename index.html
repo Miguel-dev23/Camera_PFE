@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capturador de Câmera - SENAI</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="script.js">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Capturador de Câmera com Canvas</h1>
+      <p>Programação Front-End - Professora Andreza Quintas</p>
+    </header>
+
+    <main>
+      <!-- Controles de entrada e ação -->
+      <section class="controls-card">
+        <div class="input-group">
+          <label for="studentName">Nome do Aluno / Identificação:</label>
+          <input type="text" id="studentName" placeholder="Ex: Miguel Araújo" />
+        </div>
+
+        <div class="input-group">
+          <label for="filterSelect">Filtro Visual (context.filter):</label>
+          <select id="filterSelect">
+            <option value="sepia(1)">Sépia</option>
+            <option value="grayscale(1)">Escala de Cinza (Grayscale)</option>
+            <option value="invert(1)">Invertido</option>
+            <option value="contrast(1.5) brightness(1.2)">Alto Contraste</option>
+            <option value="none">Sem Filtro</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button id="btnStart" class="btn btn-primary">Ligar Câmera</button>
+          <button id="btnCapture" class="btn btn-success" disabled>Tirar Foto</button>
+          <button id="btnStop" class="btn btn-danger" disabled>Desligar Câmera</button>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+      </section>
+
+      <!-- Vídeo ao vivo e imagem capturada -->
+      <section class="media-section">
+        <div class="video-container">
+          <h2>Pré-visualização da Câmera</h2>
+          <video id="webcam" autoplay playsinline muted class="hidden"></video>
+          <div id="cameraOffPlaceholder" class="placeholder">Câmera Desligada</div>
+        </div>
+
+        <div class="result-container">
+          <h2>Imagem Capturada</h2>
+          <img id="capturedImage" alt="Sua captura aparecerá aqui" class="hidden" />
+          <div id="imagePlaceholder" class="placeholder">Nenhuma foto capturada ainda</div>
+        </div>
+      </section>
+
+      <!-- Canvas oculto para processamento de imagem -->
+      <canvas id="canvas" style="display: none;"></canvas>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
